@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satisfaction Guaranteed</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <section id="title">
+      <div class="title-content">
+        <h1>Satisfaction</h1>
+        <h1>Guaranteed</h1>
+      </div>
+    </section>
+
+    <section id="blocks"></section>
+
+    <section id="split-the-sea"></section>
+
+    <section id="goo">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="goo-filter">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+              result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="goo"></div>
+      <div class="goo"></div>
+      <div class="goo"></div>
+      <div class="goo"></div>
+      <div class="goo"></div>
+      <span id="mouse"></span>
+    </section>
+
+    <section id="flip"></section>
+
+    <section id="dots"></section>
+  </body>
+</html>

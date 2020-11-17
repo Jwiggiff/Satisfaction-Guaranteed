@@ -1,0 +1,23 @@
+{
+  "name": "satisfaction-guaranteed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwiggiff/Satisfaction-Guaranteed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwiggiff/Satisfaction-Guaranteed/issues"
+  },
+  "homepage": "https://github.com/Jwiggiff/Satisfaction-Guaranteed#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
