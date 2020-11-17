@@ -93,6 +93,7 @@
     mouseY = e.target.offsetHeight - 80;
   });
   gooEl.addEventListener("touchmove", (e) => {
+    e.preventDefault();
     mouseX = e.touches[0].clientX - e.target.offsetLeft - 30;
     mouseY = e.touches[0].clientY - e.target.offsetTop - 30;
   });
