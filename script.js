@@ -26,6 +26,19 @@
     container.appendChild(block);
     blocksEl.appendChild(container);
   }
+  blocksEl.addEventListener("touchmove", (e) => {
+    let currentEl = document.elementFromPoint(
+      e.touches[0].clientX,
+      e.touches[0].clientY
+    );
+    currentEl.classList.add("hover");
+    currentEl.parentNode.childNodes.forEach((el) => {
+      if (el != currentEl) el.classList.remove("hover");
+    });
+  });
+  blocksEl.addEventListener("touchend", (e) => {
+    blocksEl.childNodes.forEach((el) => el.classList.remove("hover"));
+  });
 })();
 
 /* SPLIT THE SEA */
@@ -44,6 +57,19 @@
     container.appendChild(blockBot);
     seaEl.appendChild(container);
   }
+  seaEl.addEventListener("touchmove", (e) => {
+    let currentEl = document.elementFromPoint(
+      e.touches[0].clientX,
+      e.touches[0].clientY
+    );
+    currentEl.classList.add("hover");
+    currentEl.parentNode.childNodes.forEach((el) => {
+      if (el != currentEl) el.classList.remove("hover");
+    });
+  });
+  seaEl.addEventListener("touchend", (e) => {
+    seaEl.childNodes.forEach((el) => el.classList.remove("hover"));
+  });
 })();
 
 /* GOO */
@@ -63,6 +89,14 @@
     mouseY = e.offsetY - 30;
   });
   gooEl.addEventListener("mouseleave", (e) => {
+    mouseX = e.target.offsetWidth / 2 - 30;
+    mouseY = e.target.offsetHeight - 80;
+  });
+  gooEl.addEventListener("touchmove", (e) => {
+    mouseX = e.touches[0].clientX - e.target.offsetLeft - 30;
+    mouseY = e.touches[0].clientY - e.target.offsetTop - 30;
+  });
+  gooEl.addEventListener("touchend", (e) => {
     mouseX = e.target.offsetWidth / 2 - 30;
     mouseY = e.target.offsetHeight - 80;
   });
@@ -86,10 +120,19 @@
     flipEl.appendChild(container);
   }
 
+  let lastContainer;
   document.querySelectorAll("#flip .block-container").forEach((container) => {
-    container.addEventListener("mouseenter", () => {
-      container.classList.toggle("forward");
-      container.classList.toggle("backward");
+    container.addEventListener("mouseenter", (e) => {
+      container.classList.toggle("flip");
+    });
+    container.addEventListener("touchmove", (e) => {
+      const currentContainer = document.elementFromPoint(
+        e.touches[0].clientX,
+        e.touches[0].clientY
+      );
+      if (currentContainer != lastContainer)
+        currentContainer.classList.toggle("flip");
+      lastContainer = currentContainer;
     });
   });
 })();
@@ -121,7 +164,20 @@
       e.target == dotsEl
         ? e.offsetX - 15
         : e.target.offsetLeft + e.offsetX - 15;
-    // mouseEl.style.left = mouseX + "px";
+  });
+  dotsEl.addEventListener("touchmove", (e) => {
+    mouseX = e.touches[0].clientX - 15;
+    let currentEl = document.elementFromPoint(
+      e.touches[0].clientX,
+      e.touches[0].clientY
+    );
+    currentEl.classList.add("hover");
+    currentEl.parentNode.childNodes.forEach((el) => {
+      if (el != currentEl) el.classList.remove("hover");
+    });
+  });
+  dotsEl.addEventListener("touchend", (e) => {
+    dotsEl.childNodes.forEach((el) => el.classList.remove("hover"));
   });
   setInterval(() => {
     xp += (mouseX - xp) / 3;
